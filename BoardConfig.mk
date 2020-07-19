@@ -36,4 +36,18 @@ BOARD_FLASH_BLOCK_SIZE := 131072
 # Qualcomm
 BOARD_USES_QCOM_HARDWARE := true
 
+# Camera
+BOARD_USE_SAMSUNG_CAMERAFORMAT_NV21 := true
+TARGET_USES_QTI_CAMERA_DEVICE := true
+USE_DEVICE_SPECIFIC_CAMERA := true
+TARGET_USES_MEDIA_EXTENSIONS := true
+
+# Dex
+ifeq ($(HOST_OS),linux)
+  ifneq ($(TARGET_BUILD_VARIANT),eng)
+    WITH_DEXPREOPT ?= true
+    WITH_DEXPREOPT_BOOT_IMG_AND_SYSTEM_SERVER_ONLY ?= true
+  endif
+endif
+
 -include vendor/samsung/j2y18lte/BoardConfigVendor.mk
