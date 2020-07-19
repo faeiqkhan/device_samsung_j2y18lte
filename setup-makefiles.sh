@@ -43,14 +43,7 @@ setup_vendor "$DEVICE" "$VENDOR" "$CM_ROOT"
 write_headers
 
 # The standard blobs
-write_makefiles "$MY_DIR"/proprietary-files.txt
-
-cat << EOF >> "$ANDROIDMK"
-
-EOF
-
-# Append the calls to firmware images
-append_firmware_calls_to_makefiles
+write_makefiles "$MY_DIR"/proprietary-files.txt true
 
 # We are done!
 write_footers
